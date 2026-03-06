@@ -6,12 +6,19 @@ on:
       - main
 
 jobs:
-  build:
+  test-runner:
     runs-on:
       - self-hosted
-      - Windows
-      - X64
+      - linux
+      - x64
 
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "Test du Runner sous MS Windows 11"
+      - name: Verification
+        run: echo "Test de fonctionnement du Runner !"
+
+      - name: tests de commandes
+        run: |
+          echo "Runner OK"
+          hostname
+          whoami
+          uname -a
